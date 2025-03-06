@@ -12,6 +12,12 @@ public class LossReportHateoasProcessor
 
     @Override
     public EntityModel<LossReport> process(EntityModel<LossReport> model) {
+        model.add(
+            Link
+                .of(model.getRequiredLink("self").getHref() + "/reportloss")
+                .withRel("reportloss")
+        );
+
         return model;
     }
 }

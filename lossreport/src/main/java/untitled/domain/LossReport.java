@@ -1,6 +1,5 @@
 package untitled.domain;
 
-import untitled.domain.LossReportCreated;
 import untitled.domain.LossReportEnd;
 import untitled.LossreportApplication;
 import javax.persistence.*;
@@ -54,14 +53,6 @@ public class LossReport  {
     LossInfoManagement lossInfoManagement = LossReportApplication.applicationContext
         .getBean(untitled.external.LossInfoManagementService.class)
         .lossInformation(get??);
-    LossInfoManagement lossInfoManagement = LossReportApplication.applicationContext
-        .getBean(untitled.external.LossInfoManagementService.class)
-        .lossInformation(get??);
-
-
-        LossReportCreated lossReportCreated = new LossReportCreated(this);
-        lossReportCreated.publishAfterCommit();
-
 
 
         LossReportEnd lossReportEnd = new LossReportEnd(this);
@@ -77,6 +68,20 @@ public class LossReport  {
 
 
 
+//<<< Clean Arch / Port Method
+    public void reportLoss(){
+        
+        //implement business logic here:
+        
+
+        LossInfoManagement lossInfoManagement = LossReportApplication.applicationContext
+            .getBean(untitled.external.LossInfoManagementService.class)
+            .lossInformation(get??);
+
+        LossReportCreated lossReportCreated = new LossReportCreated(this);
+        lossReportCreated.publishAfterCommit();
+    }
+//>>> Clean Arch / Port Method
 
 
 
